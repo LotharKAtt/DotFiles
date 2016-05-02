@@ -97,11 +97,11 @@ set $workspace1  "1 "
 set $workspace2  "2 "
 set $workspace3  "3:"
 set $workspace4  "4:"
-set $workspace5  "5:"
+set $workspace5  "5 "
 set $workspace6  "6:"
 set $workspace7  "7"
 set $workspace8  "8 "
-set $workspace9  "9 "  
+set $workspace9  "9 "
 set $workspace10 "10  "
 
 # switch to workspace
@@ -127,11 +127,15 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
-
 # class
 assign [class="Firefox"] $workspace2
 assign [class="Corebird"] $workspace8
 assign [class="Evolution"] $workspace9
+assign [class="Slack"] $workspace5
+# Spotify doesn't work with class :(
+for_window [class="Spotify"] move to workspace $workspace10
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -165,10 +169,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#Tweak
+# Tweak
 set $bg-color 	 		#2f343f
 set $inactive-bg-color 	        #2f343f
-set $text-color 		#f3f4f5
+set $text-color 		#f3f5f5
 set $inactive-text-color 	#676E76
 set $urgent-bg-color		#E53935
 set $indicator			#255fd3
@@ -193,7 +197,6 @@ bar {
 	focused_workspace	$bg-color		$bg-color		$text-color
 	inactive_workspace	$inactive-bg-color	$inactive-bg-color	$inactive-text-color
 	urgent_workspace 	$urgent-bg-color	$urgent-bg-color	$text-color
-	
 	}
 }
 # add nmaplet (wifi/vpn)
@@ -205,19 +208,24 @@ bindsym $mod+Shift+x exec slimlock
 # set wallpaper
 exec_always feh --bg-scale /home/cizinskyp/Pictures/Wallpapers/wallpaper.jpg
 exec_always compton -f
+
 # arandr for more monitors
 
-# exec
+# exec files
 exec corebird
 #exec firefox
 exec slack
 exec evolution
 
 # Multimedia Keys
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 # VOLUME down/up/mute
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
+
+#Caps lock indicator
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindysm --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
