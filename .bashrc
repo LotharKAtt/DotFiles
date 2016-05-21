@@ -93,8 +93,9 @@ fi
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
-#alias l='ls -CF'
+alias l='ls -CF'
 alias up='sudo aptitude upgrade; sudo aptitude update; sudo aptitude dist-upgrade'
+alias vim='nvim'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -115,7 +116,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
 
 #powerline
 . /usr/share/powerline/bindings/bash/powerline.sh
