@@ -5,7 +5,7 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="zeta"
+ZSH_THEME="clean"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -60,7 +60,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
-#export EDITOR = 'nvim'
+export EDITOR=nvim
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -79,8 +79,3 @@ export LANG=en_US.UTF-8
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias zshconfig="mate ~/.zshrc"
-alias zshconfig="mate ~/.zshrc"
-#alias up='sudo apt update; sudo apt upgrade; sudo apt dist-upgrade -V'
-#alias vim='nvim'
