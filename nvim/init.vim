@@ -115,11 +115,11 @@ Plug 'bronson/vim-trailing-whitespace'
 
 " Syntax
 Plug 'saltstack/salt-vim'
-Plug 'kchmck/vim-coffee-script'
 Plug 'stephpy/vim-yaml'
 Plug 'Rykka/riv.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'fatih/vim-go'
 
 " Syntax and productivity
 Plug 'freitass/todo.txt-vim'
@@ -139,6 +139,7 @@ Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 colorscheme PaperColor
+
 
 """ Nerd Tree
 " Hotkey for Nerd Tree
@@ -182,13 +183,8 @@ autocmd BufNewFile,BufRead TODO.txt set filetype=todo
 let g:extra_whitespace_ignored_filetypes = ['mail']
 
 """ Airline
-"let g:airline_theme = 'distinguished'
+let g:airline_theme = 'distinguished'
 let g:airline_theme='PaperColor'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#checks = []
-"let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_powerline_fonts')
-   " Use the default set of separators with a few customizations
-   let g:airline_left_sep='' " Slightly fancier than '<'
-endif
+let g:airline_powerline_fonts = 1
