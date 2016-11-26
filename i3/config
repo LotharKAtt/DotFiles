@@ -175,8 +175,8 @@ exec --no-startup-id nm-applet
 # arandr for more monitors
 
 # Keyboard backlight
-bindsym XF86KbdBrightnessUp exec sudo tee /sys/class/leds/asus::kbd_backlight/brightness <<< 3
-bindsym XF86KbdBrightnessDown exec "sudo tee /sys/class/leds/asus::kbd_backlight/brightness <<< 0"
+bindsym XF86KbdBrightnessUp exec "sudo echo 3 | sudo tee /sys/class/leds/asus::kbd_backlight/brightness"
+bindsym XF86KbdBrightnessDown exec "sudo echo 0 | sudo tee /sys/class/leds/asus::kbd_backlight/brightness"
 
 # FIXME display backlight
 #  tee  /sys/class/backlight/intel_backlight/brightness  <<< 500

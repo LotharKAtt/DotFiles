@@ -10,7 +10,7 @@ alias vim='nvim'
 alias nvconf='nvim ~/.config/nvim/init.vim'
 alias zshrc='nvim ~/.zshrc && source ~/.zshrci'
 alias tmuxconf='nvim ~/.tmux.conf'
-alias xres='nvim ~/.Xresources && xrdb ~/.Xresources'
-alias i3conf='nvim ~/.config/i3/config'
+alias gconf='nvim ~/.gitconfig'
+
 # Network
 alias p='ping 8.8.8.8'

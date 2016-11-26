@@ -1,3 +1,10 @@
+" _             _    _                   _   __  ___   _    _
+"| |           | |  | |                 | | / / / _ \ | |  | |
+"| |      ___  | |_ | |__    __ _  _ __ | |/ / / /_\ \| |_ | |_
+"| |     / _ \ | __|| '_ \  / _` || '__||    \ |  _  || __|| __|
+"| |____| (_) || |_ | | | || (_| || |   | |\  \| | | || |_ | |_
+"\_____/ \___/  \__||_| |_| \__,_||_|   \_| \_/\_| |_/ \__| \__|
+"
 " Author: Pavel 'LotharKAtt' Cizinsky
 " Repository: github.com/LotharKAtt/DotFiles
 " Based on github.com/fpytloun config, thanks mate
@@ -134,12 +141,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Theme
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
-colorscheme PaperColor
-
+colorscheme OceanicNext
 
 """ Nerd Tree
 " Hotkey for Nerd Tree
@@ -150,37 +156,22 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Allow closing Vim if only Nerd Tree is opened
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-
 " Return to the same line when you reopen a file
 if has("autocmd")
  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-""diable arrow keys
-"normal mode
+""" diable arrow keys
+"" normal mode
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-"insert mode
+"" insert mode
 imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-
-""eddit shits bellow
-""" Riv
-let g:riv_fold_level = -1
-let g:riv_fold_auto_update = 0
-let g:riv_ignored_imaps = "<Del>"
-
-""" todo.txt
-autocmd BufNewFile,BufRead *_[Tt]odo.txt set filetype=todo
-autocmd BufNewFile,BufRead [Tt]odo_*.txt set filetype=todo
-autocmd BufNewFile,BufRead TODO.txt set filetype=todo
-""" trailing-whitespace
-let g:extra_whitespace_ignored_filetypes = ['mail']
 
 """ Airline
 let g:airline_theme = 'distinguished'
