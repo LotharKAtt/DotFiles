@@ -56,10 +56,7 @@ set modelines=5
 set relativenumber  " show relativeline numbers
 nnoremap <Leader>n :set number!<CR>
 set tw=78   " width of document (used by gd)
-"set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-"set colorcolumn=80		" highlight 80 column
-"highlight ColorColumn ctermbg=233
 
 " Show cursor line, toggle with \c
 " Cursor line is slow, don't enable it by default
@@ -87,10 +84,11 @@ nnoremap <space> za
 vnoremap <space> zf
 
 """ Filetypes
+" TODO
 " Don't automatically fold python files
-autocmd FileType python set nofoldenable
-autocmd FileType python map <buffer> <F5> :PymodeLint<CR>
-autocmd FileType python map <buffer> <F6> :PymodeLintAuto<CR>
+"autocmd FileType python set nofoldenable
+"autocmd FileType python map <buffer> <F5> :PymodeLint<CR>
+"autocmd FileType python map <buffer> <F6> :PymodeLintAuto<CR>
 
 " Two-spaces for Yaml files
 autocmd FileType yaml set shiftwidth=2
@@ -98,17 +96,14 @@ autocmd FileType yaml set softtabstop=2
 autocmd FileType yaml set tabstop=2
 
 " Syntax for various file types
-autocmd BufRead,BufNewFile *.avdl set filetype=avro-idl
 autocmd BufNewFile,BufRead *.upstart set filetype=upstart
 autocmd BufNewFile,BufRead *.make set filetype=make
 autocmd BufNewFile,BufRead *.dockerfile set filetype=dockerfile
-autocmd BufNewFile,BufRead *.muttrc set filetype=muttrc
 autocmd BufNewFile,BufRead *.env set filetype=yaml
 autocmd BufNewFile,BufRead *.hot set filetype=yaml
 autocmd BufNewFile,BufRead *.env.example set filetype=yaml
 
 """ --- PLUGINS ---
-
 call plug#begin('~/.config/nvim/plugins')
 
 "Core
@@ -126,42 +121,39 @@ Plug 'stephpy/vim-yaml'
 Plug 'Rykka/riv.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'fatih/vim-go'
-
-" Syntax and productivity
-Plug 'freitass/todo.txt-vim'
-Plug 'fpytloun/vim-notes'
-Plug 'xolox/vim-misc'
 
 " Git
 Plug 'airblade/vim-gitgutter'
+
+" Gon
+Plug 'fatih/vim-go'
+
+" Python
+Plug 'nvie/vim-flake8'
 
 " Misc
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Theme
-Plug 'mhartington/oceanic-next'
+Plug 'dikiaap/minimalist'
 
 call plug#end()
 
-colorscheme OceanicNext
+set t_Co=256
+syntax on
+colorscheme minimalist
 
 """ Nerd Tree
 " Hotkey for Nerd Tree
 map <c-e> :NERDTreeToggle<CR>
-" Open Nerd Tree if no file is opened
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Allow closing Vim if only Nerd Tree is opened
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Return to the same line when you reopen a file
 if has("autocmd")
  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-""" diable arrow keys
+""" Hard Mode (diable arrow keys)
 "" normal mode
 map <up> <nop>
 map <down> <nop>
@@ -175,7 +167,7 @@ imap <right> <nop>
 
 """ Airline
 let g:airline_theme = 'distinguished'
-let g:airline_theme='PaperColor'
+let g:airline_theme='minimalist'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#checks = []
-let g:airline_powerline_fonts = 1
+" let g:airline_powerline_fonts = 1
