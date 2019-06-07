@@ -9,10 +9,6 @@
 " Repository: github.com/LotharKAtt/DotFiles
 " Based on github.com/fpytloun config, thanks mate
 "
-""Common behavior
-" Theme and colors
-set background=dark
-
 " Disable stupid backup and swap files - they trigger too many events for file
 " system watchers
 set nobackup
@@ -83,13 +79,6 @@ set nofoldenable
 nnoremap <space> za
 vnoremap <space> zf
 
-""" Filetypes
-" TODO
-" Don't automatically fold python files
-"autocmd FileType python set nofoldenable
-"autocmd FileType python map <buffer> <F5> :PymodeLint<CR>
-"autocmd FileType python map <buffer> <F6> :PymodeLintAuto<CR>
-
 " Two-spaces for Yaml files
 autocmd FileType yaml set shiftwidth=2
 autocmd FileType yaml set softtabstop=2
@@ -103,12 +92,15 @@ autocmd BufNewFile,BufRead *.env set filetype=yaml
 autocmd BufNewFile,BufRead *.hot set filetype=yaml
 autocmd BufNewFile,BufRead *.env.example set filetype=yaml
 
-""" --- PLUGINS ---
+""" Plugins
 call plug#begin('~/.config/nvim/plugins')
 
-"Core
+" Core
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/SearchComplete'
+Plug 'tpope/vim-surround'
+Plug 'will133/vim-dirdiff'
 
 " Formatting
 Plug 'Raimondi/YAIFA'
@@ -121,28 +113,32 @@ Plug 'stephpy/vim-yaml'
 Plug 'Rykka/riv.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'luochen1990/rainbow'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " Git
 Plug 'airblade/vim-gitgutter'
 
-" Gon
+" Go
 Plug 'fatih/vim-go'
 
-" Python
-Plug 'nvie/vim-flake8'
+" IDE
+Plug 'scrooloose/nerdcommenter'
 
 " Misc
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Theme
-Plug 'dikiaap/minimalist'
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
 set t_Co=256
 syntax on
-colorscheme minimalist
+colorscheme OceanicNext
+
 
 """ Nerd Tree
 " Hotkey for Nerd Tree
@@ -154,12 +150,13 @@ if has("autocmd")
 endif
 
 """ Hard Mode (diable arrow keys)
-"" normal mode
+" normal mode
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-"" insert mode
+
+" insert mode
 imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
@@ -167,7 +164,8 @@ imap <right> <nop>
 
 """ Airline
 let g:airline_theme = 'distinguished'
-let g:airline_theme='minimalist'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#checks = []
-" let g:airline_powerline_fonts = 1
+
+""" Rainbow
+let g:rainbow_active = 1
