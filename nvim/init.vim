@@ -139,6 +139,8 @@ set t_Co=256
 syntax on
 colorscheme OceanicNext
 
+" Disable tilde on end of files
+hi EndOfBuffer ctermfg=bg
 
 """ Nerd Tree
 " Hotkey for Nerd Tree
