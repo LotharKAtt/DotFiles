@@ -65,16 +65,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # variables
-set $workspace1  "1: Term"
-set $workspace2  "2: Firefox"
-set $workspace3  "3: IRC"
-set $workspace4  "4: "
-set $workspace5  "5: Slack"
-set $workspace6  "6: Anime"
-set $workspace7  "7: Video"
-set $workspace8  "8: Books"
-set $workspace9  "9: @"
-set $workspace10 "10: Spotify"
+set $workspace1  "1"
+set $workspace2  "2 Firefox"
+set $workspace3  "3"
+set $workspace4  "4"
+set $workspace5  "5 Slack"
+set $workspace6  "6"
+set $workspace7  "7"
+set $workspace8  "8"
+set $workspace9  "9"
+set $workspace10 "10 Spotify"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -102,8 +102,6 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # class
 assign [class="Firefox"] $workspace2
-assign [class="vlc"] $workspace7
-assign [class="Evolution"] $workspace9
 assign [class="Slack"] $workspace5
 # Spotify doesn't work with class :(
 for_window [class="Spotify"] move to workspace $workspace10
@@ -168,9 +166,14 @@ bar {
 bindsym $mod+Shift+x exec slimlock
 
 # Autostart
-exec_always feh --bg-scale /home/lotharkatt/Pictures/Wallpapers/wallpaper.png
+exec_always feh --bg-scale ~/Pictures/wallpapers/wallpaper.png
 exec_always compton -f
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id redshift
+
+# Screenshot
+bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 
 # arandr for more monitors
 
