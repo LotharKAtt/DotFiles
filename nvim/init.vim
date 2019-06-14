@@ -116,6 +116,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'luochen1990/rainbow'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'hashivim/vim-terraform'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -171,3 +172,7 @@ let g:airline#extensions#whitespace#checks = []
 
 """ Rainbow
 let g:rainbow_active = 1
+
+""" Terraform
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1

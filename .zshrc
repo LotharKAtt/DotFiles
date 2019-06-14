@@ -64,7 +64,6 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export GO111MODULE=on
 
-
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 
