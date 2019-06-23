@@ -1,3 +1,12 @@
+# _             _    _                   _   __  ___   _    _
+#| |           | |  | |                 | | / / / _ \ | |  | |
+#| |      ___  | |_ | |__    __ _  _ __ | |/ / / /_\ \| |_ | |_
+#| |     / _ \ | __|| '_ \  / _` || '__||    \ |  _  || __|| __|
+#| |____| (_) || |_ | | | || (_| || |   | |\  \| | | || |_ | |_
+#\_____/ \___/  \__||_| |_| \__,_||_|   \_| \_/\_| |_/ \__| \__|
+#
+# Author: Pavel 'LotharKAtt' Cizinsky
+# Repository: github.com/LotharKAtt/DotFiles
 # i3 config file
 
 set $mod Mod4
@@ -66,15 +75,15 @@ bindsym $mod+a focus parent
 
 # variables
 set $workspace1  "1"
-set $workspace2  "2 Firefox"
+set $workspace2  "2"
 set $workspace3  "3"
 set $workspace4  "4"
-set $workspace5  "5 Slack"
+set $workspace5  "5"
 set $workspace6  "6"
 set $workspace7  "7"
 set $workspace8  "8"
 set $workspace9  "9"
-set $workspace10 "10 Spotify"
+set $workspace10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -151,7 +160,7 @@ client.urgent		$urgent-bg-color	$urgent-bg-color	$text-color		$indicator
 
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    position bottom
+    position top
     colors {
     background $bar
             separator #757575
@@ -163,7 +172,7 @@ bar {
 }
 
 # lock keyboard
-bindsym $mod+Shift+x exec slimlock
+bindsym $mod+Shift+x exec slock
 
 # Autostart
 exec_always feh --bg-scale ~/Pictures/wallpapers/wallpaper.png

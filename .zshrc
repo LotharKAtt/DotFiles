@@ -56,7 +56,7 @@ plugins=(autojump colorize git git-extras github pip python zsh_reload vi-mode g
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
-source ~/.aliases.sh
+source ~/.aliases.zsh
 source $ZSH/oh-my-zsh.sh
 
 export GOROOT=/usr/local/go
