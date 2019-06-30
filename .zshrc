@@ -53,7 +53,6 @@ HISTTIMEFORMAT="%d/%m/%y %T "
 plugins=(autojump colorize git git-extras github pip python zsh_reload vi-mode golang systemd npm)
 
 # User configuration
-
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 source ~/.aliases.zsh
@@ -72,9 +71,3 @@ export EDITOR=nvim
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
