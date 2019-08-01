@@ -166,7 +166,7 @@ imap <left> <nop>
 imap <right> <nop>
 
 """ Airline
-let g:airline_theme = 'distinguished'
+let g:airline_theme = 'oceanicnext'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#checks = []
 

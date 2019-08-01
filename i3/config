@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 14
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -29,11 +29,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -fullscreen -width 100 -padding 250 -bc "$bg-color" -bg "$bg-color" -font "Ubuntu 16" -line-margin 5 -lines 5 -separator-style solid -opacity "75"
-
 # start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -109,8 +106,6 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-# class
-assign [class="Firefox"] $workspace2
 assign [class="Slack"] $workspace5
 # Spotify doesn't work with class :(
 for_window [class="Spotify"] move to workspace $workspace10
@@ -175,7 +170,7 @@ bar {
 bindsym $mod+Shift+x exec slock
 
 # Autostart
-exec_always feh --bg-scale ~/Pictures/wallpapers/wallpaper.png
+exec_always feh --bg-scale ~/Pictures/wallpapers/wallpaper.jpg
 exec_always compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
@@ -184,21 +179,19 @@ exec --no-startup-id redshift
 # Screenshot
 bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 
-# arandr for more monitors
 
-# Keyboard backlight
-bindsym XF86KbdBrightnessUp exec "sudo echo 3 | sudo tee /sys/class/leds/asus::kbd_backlight/brightness"
-bindsym XF86KbdBrightnessDown exec "sudo echo 0 | sudo tee /sys/class/leds/asus::kbd_backlight/brightness"
+# Multimedia keys
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # Increase Brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # Decrease Brightness
 
-# FIXME display backlight
-#  tee  /sys/class/backlight/intel_backlight/brightness  <<< 500
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
 
-# VOLUME down/up/mute
-bindsym XF86AudioRaiseVolume exec amixer set Master -q 1%+ unmute
-bindsym XF86AudioLowerVolume exec amixer set Master -q 1%- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle-mute # Toggle muting
 
 # Change keyboard layout
 set $keyboardMode "Keyboard layout [C]zech : [E]nglish"
