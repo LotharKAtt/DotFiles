@@ -106,6 +106,7 @@ Plug 'will133/vim-dirdiff'
 Plug 'Raimondi/YAIFA'
 Plug 'godlygeek/tabular'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'Yggdroot/indentLine'
 
 " Syntax
 Plug 'saltstack/salt-vim'
@@ -176,3 +177,9 @@ let g:rainbow_active = 1
 """ Terraform
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
+
+""" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
