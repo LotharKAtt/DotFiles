@@ -1,9 +1,7 @@
-# Debian
-alias up='sudo apt update; sudo apt upgrade; sudo apt dist-upgrade -V'
-
 # Files
-alias ls="ls -ohX"
-alias la="ls -oAh"
+alias ls="eza --icons --git -l"
+alias cat="bat"
+alias cd="z"
 
 # System
 alias q="exit"
@@ -18,5 +16,3 @@ alias gconf='nvim ~/.gitconfig'
 
 # Network
 alias p='ping 8.8.8.8'
-alias dns='cat /etc/resolv.conf'
-
