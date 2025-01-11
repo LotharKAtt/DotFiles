@@ -1,4 +1,5 @@
-vim.g.mapleader = " "  -- Set leader key to space
+-- Set leader key to space
+vim.g.mapleader = " "
 
 
 -- VIM HARDMODE

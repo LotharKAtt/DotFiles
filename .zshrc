@@ -4,6 +4,8 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+# Homebrew
+HOMEBREW_NO_AUTO_UPDATE=false
 
 # Zsh history
 HISTFILE="$HOME/.zsh_history"
@@ -61,3 +63,18 @@ zstyle ':completion:*' menu select
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# bun completions
+[ -s "/Users/lotharkatt/.bun/_bun" ] && source "/Users/lotharkatt/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+# Auto suggestion
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Syntax highlights
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# Scrolling history
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
