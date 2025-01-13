@@ -1,3 +1,14 @@
+#  _             _    _                   _   __  ___   _    _
+# | |           | |  | |                 | | / / / _ \ | |  | |
+# | |      ___  | |_ | |__    __ _  _ __ | |/ / / /_\ \| |_ | |_
+# | |     / _ \ | __|| '_ \  / _` || '__||    \ |  _  || __|| __|
+# | |____| (_) || |_ | | | || (_| || |   | |\  \| | | || |_ | |_
+# \_____/ \___/  \__||_| |_| \__,_||_|   \_| \_/\_| |_/ \__| \__|
+# 
+#  Author: Pavel 'LotharKAtt' Cizinsky
+#  Repository: github.com/LotharKAtt/DotFiles
+#  zsh config file
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -38,8 +49,30 @@ export GO111MODULE=on
 
 # FZF
 source <(fzf --zsh)
-export FZF_DEFAULT_OPTS='--color=light'
-
+# Tokyonight day theme
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none
+  --color=bg+:#b7c1e3 \
+  --color=bg:#d0d5e3 \
+  --color=border:#4094a3 \
+  --color=fg:#3760bf \
+  --color=gutter:#d0d5e3 \
+  --color=header:#b15c00 \
+  --color=hl+:#188092 \
+  --color=hl:#188092 \
+  --color=info:#8990b3 \
+  --color=marker:#d20065 \
+  --color=pointer:#d20065 \
+  --color=prompt:#188092 \
+  --color=query:#3760bf:regular \
+  --color=scrollbar:#4094a3 \
+  --color=separator:#b15c00 \
+  --color=spinner:#d20065 \
+"
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -48,11 +81,8 @@ eval "$(zoxide init zsh)"
 export PATH=/Users/lotharkatt/Tools/flutter/bin:$PATH 
 export PATH=/usr/local/opt/openjdk@17/bin:$PATH
 
-# Alisase
+# Load aliases from external file
 source ~/.aliases.zsh
-
-
-
 
 autoload -Uz +X compinit && compinit
 
@@ -69,12 +99,15 @@ source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
 # Auto suggestion
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Syntax highlights
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
 # Scrolling history
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+# Enable thefuck
+eval $(thefuck --alias)
