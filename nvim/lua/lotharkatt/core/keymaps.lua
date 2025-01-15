@@ -15,4 +15,6 @@ vim.api.nvim_set_keymap('i', '<Down>', '<nop>', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('i', '<Left>', '<nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<Right>', '<nop>', { noremap = true, silent = true })
 
+-- Zenmode
+vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", { noremap = true, silent = true })
 
