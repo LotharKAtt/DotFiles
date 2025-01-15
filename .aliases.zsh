@@ -2,6 +2,7 @@
 alias ls="eza --icons --git -l"
 alias cat="bat"
 alias cd="z"
+alias tree="eza --tree --icons --group-directories-first"
 
 # System
 alias q="exit"
@@ -16,3 +17,8 @@ alias gconf='nvim ~/.gitconfig'
 
 # Network
 alias p='ping 8.8.8.8'
+
+alias firefox="open -a firefox"
+
+alias zreload='source ~/.zshrc'
+
