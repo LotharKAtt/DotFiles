@@ -21,7 +21,10 @@ local config = wezterm.config_builder()
 -- https://wezfurlong.org/wezterm/colorschemes/t/index.html#tokyo-night-day
 config.color_scheme = 'Tokyo Night Day'
 
+
 config.font_size = 18
+config.enable_csi_u_key_encoding = true
+
 
 -- Disable tabs
 config.enable_tab_bar = false
@@ -75,5 +78,10 @@ config.hyperlink_rules = {
       },
    }
 
+
+-- Performance
+config.animation_fps = 1
+config.max_fps = 60
+config.scrollback_lines = 10000
 
 return config
