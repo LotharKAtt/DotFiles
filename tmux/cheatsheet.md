@@ -5,15 +5,16 @@
 | **Key Combination**       | **Action**                                                 |
 |----------------------------|-----------------------------------------------------------|
 | `Ctrl-a`                  | Send prefix key (new prefix)                               |
-| `Ctrl-a -`                | Rename the current window                                  |
+| `Ctrl-a ,`                | Rename the current window                                  |
+| `Ctrl-a s`                | Show all open seassions [`x` - kill session, `d` - detach ]|
 | `Ctrl-a c`                | Create a new window                                        |
 | `Ctrl-a <number>`         | Switch to window `<number>`                                |
 | `Ctrl-a r`                | Reload tmux configuration (`~/.tmux.conf`)                 |
-| `Ctrl-a \|`                | Split window vertically                                    |
+| `Ctrl-a \|`               | Split window vertically                                    |
 | `Ctrl-a -`                | Split window horizontally                                  |
 | `Ctrl-a n`                | Move to the next window                                    |
 | `Ctrl-a p`                | Move to the previous window                                |
-| `Ctrl-a t`                | Display a clock in the current window                     |
+| `Ctrl-a t`                | Display a clock in the current window                      |
 
 ## Pane Management Key Bindings
 

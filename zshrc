@@ -4,7 +4,7 @@
 # | |     / _ \ | __|| '_ \  / _` || '__||    \ |  _  || __|| __|
 # | |____| (_) || |_ | | | || (_| || |   | |\  \| | | || |_ | |_
 # \_____/ \___/  \__||_| |_| \__,_||_|   \_| \_/\_| |_/ \__| \__|
-# 
+#
 #  Author: Pavel 'LotharKAtt' Cizinsky
 #  Repository: github.com/LotharKAtt/DotFiles
 #  zsh config file
@@ -43,7 +43,7 @@ source $ZPLUG_HOME/init.zsh
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 
-# Golang 
+# Golang
 export GOPATH=$HOME/Development/go
 export GO111MODULE=on
 
@@ -78,7 +78,7 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 eval "$(zoxide init zsh)"
 
 # Set PATH
-export PATH=/Users/lotharkatt/Tools/flutter/bin:$PATH 
+export PATH=/Users/lotharkatt/Tools/flutter/bin:$PATH
 export PATH=/usr/local/opt/openjdk@17/bin:$PATH
 
 # Load aliases from external file
@@ -94,7 +94,7 @@ zstyle ':completion:*' menu select
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # bun completions
-[ -s "/Users/lotharkatt/.bun/_bun" ] && source "/Users/lotharkatt/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -111,3 +111,6 @@ bindkey '^[[B' history-search-forward
 
 # Enable thefuck
 eval $(thefuck --alias)
+
+export PATH="/usr/local/opt/util-linux/bin:$PATH"
+
