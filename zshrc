@@ -37,8 +37,13 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 # Set up ZPLUG zsh manager
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+if [[ "$(uname -s)" = Darwin && "$(uname -v)" = *ARM64* ]]; then
+    export ZPLUG_HOME=/opt/homebrew/opt/zplug
+    source $ZPLUG_HOME/init.zsh
+else
+    export ZPLUG_HOME=/usr/local/opt/zplug
+    source $ZPLUG_HOME/init.zsh
+fi
 
 export LANG=en_US.UTF-8
 export EDITOR=nvim
@@ -77,9 +82,6 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 # zoxide
 eval "$(zoxide init zsh)"
 
-# Set PATH
-export PATH=/Users/lotharkatt/Tools/flutter/bin:$PATH
-export PATH=/usr/local/opt/openjdk@17/bin:$PATH
 
 # Load aliases from external file
 source ~/.aliases.zsh
@@ -100,10 +102,15 @@ source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Auto suggestion
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# Syntax highlights
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ "$(uname -s)" = Darwin && "$(uname -v)" = *ARM64* ]]; then
+    # Auto suggestion
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # Syntax highlights
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+    source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # Scrolling history
 bindkey '^[[A' history-search-backward
@@ -113,4 +120,3 @@ bindkey '^[[B' history-search-forward
 eval $(thefuck --alias)
 
 export PATH="/usr/local/opt/util-linux/bin:$PATH"
-

@@ -1,4 +1,4 @@
-#!/bin/zsh 
+#!/bin/zsh
 
 LOCAL_REPO="$HOME/Development/DotFiles"
 
@@ -6,6 +6,9 @@ install_brew(){
     if ! command -v brew &> /dev/null; then
         echo "Installing Homebrew... 🍺"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        echo >> $HOME/.zprofile
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
     else
         echo "Homebrew is already installed ✅"
     fi
@@ -24,7 +27,7 @@ configure_tmux(){
         git clone https://github.com/tmux-plugins/tpm $HOME/.config/tmux/plugins/tpm
     else
         echo "TPM is already installed ✅"
-    fi    
+    fi
 
     echo "Sourcing tmux config..."
     tmux source-file $HOME/.config/tmux/tmux.conf
@@ -40,16 +43,16 @@ install_brew_pkgs(){
 }
 
 additonal_config(){
-    configure_tmux  
+    configure_tmux
     # nvim
 }
 
 create_symlinks(){
     echo "Creating symlinks... 🔗"
-    
+
     # Ensure directories exist before linking
     mkdir -p $HOME/.config/tmux $HOME/.config/nvim $HOME/.config/aerospace
-    
+
     # Symlink dotfiles
     ln -sf $LOCAL_REPO/tmux/* $HOME/.config/tmux
     ln -sf $LOCAL_REPO/nvim/* $HOME/.config/nvim
