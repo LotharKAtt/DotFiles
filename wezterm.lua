@@ -38,42 +38,48 @@ config.window_background_opacity = 0.95
 config.macos_window_background_blur = 10
 
 -- Hyperlink fix
-config.hyperlink_rules = { -- Matches: a URL in parentheses (URL)
-{
-    regex = '\\((https?://[\\S]+)\\)',
+config.hyperlink_rules = {
+  -- Matches: a URL in parens: (URL)
+  {
+    regex = '\\((\\w+://\\S+)\\)',
     format = '$1',
-    highlight = 1
-}, -- Matches: a URL in square brackets [URL]
-{
-    regex = '\\[([\\w+://\\S]+)\\]',
+    highlight = 1,
+  },
+  -- Matches: a URL in brackets: [URL]
+  {
+    regex = '\\[(\\w+://\\S+)\\]',
     format = '$1',
-    highlight = 1
-}, -- Matches: a URL in curly braces {URL}
-{
-    regex = '\\{(https?://[\\S]+)\\}',
+    highlight = 1,
+  },
+  -- Matches: a URL in curly braces: {URL}
+  {
+    regex = '\\{(\\w+://\\S+)\\}',
     format = '$1',
-    highlight = 1
-}, -- Matches: a URL in angle brackets <URL>
-{
-    regex = '<(https?://[\\S]+)>',
+    highlight = 1,
+  },
+  -- Matches: a URL in angle brackets: <URL>
+  {
+    regex = '<(\\w+://\\S+)>',
     format = '$1',
-    highlight = 1
-}, -- Generic URL matcher (http:// or https://)
-{
-    regex = '\\b(https?://[\\S]+)\\b',
+    highlight = 1,
+  },
+  -- Then handle URLs not wrapped in brackets
+  {
+    -- Before
+    --regex = '\\b\\w+://\\S+[)/a-zA-Z0-9-]+',
+    --format = '$0',
+    -- After
+    regex = '[^(]\\b(\\w+://\\S+[)/a-zA-Z0-9-]+)',
     format = '$1',
-    highlight = 1
-}, -- Implicit mailto link (email addresses)
-{
-    regex = '\\b([\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,})\\b',
+    highlight = 1,
+  },
+  -- implicit mailto link
+  {
+    regex = '\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b',
     format = 'mailto:$0',
-    highlight = 1
-}, -- Matches: a bare domain name or IP (without protocols)
-{
-    regex = '\\b([\\w.-]+(?:\\.\\w+)+)\\b',
-    format = 'http://$0',
-    highlight = 1
-}}
+  },
+}
+
 
 -- Performance
 config.animation_fps = 1
